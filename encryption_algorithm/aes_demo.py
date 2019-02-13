@@ -43,8 +43,8 @@ class AesDemo(object):
 
 
 if __name__ == '__main__':
-    aes = AesDemo(salt='12345sdfsdfcwefcdsfvdsvfcdscvfdsvc6')
-    content = 'abcd4321sdfsd'
-    encrypt_result = aes.encrypt_oracle(content)
+    rsa_demo = AesDemo(salt='12345sdfsdfcwefcdsfvdsvfcdscvfdsvc6')
+    text = 'abcd4321sdfsd'
+    encrypt_result = rsa_demo.encrypt_oracle(text)
     print(encrypt_result)
-    print(aes.decrypt_oracle(encrypt_result))
+    print(rsa_demo.decrypt_oracle(encrypt_result))
