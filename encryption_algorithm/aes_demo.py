@@ -5,7 +5,17 @@ from Crypto.Cipher import AES
 class AesDemo(object):
 
     def __init__(self, salt):
-        self.salt = salt
+        """
+        AES
+        除了MODE_SIV模式key长度为：32, 48, or 64,
+        其余key长度为16, 24 or 32
+        详细见AES内部文档
+        CBC模式传入iv参数
+        本例使用常用的ECB模式
+        """
+        if len(salt) > 32:
+            salt = salt[:32]
+        self.key = self.add_to_16(salt)
         self.aes = AES.new(self.add_to_16(salt), AES.MODE_ECB)
 
     # 加密方法
@@ -33,8 +43,8 @@ class AesDemo(object):
 
 
 if __name__ == '__main__':
-    aes = AesDemo(salt='123456')
-    content = 'abcd4321'
+    aes = AesDemo(salt='12345sdfsdfcwefcdsfvdsvfcdscvfdsvc6')
+    content = 'abcd4321sdfsd'
     encrypt_result = aes.encrypt_oracle(content)
     print(encrypt_result)
     print(aes.decrypt_oracle(encrypt_result))
