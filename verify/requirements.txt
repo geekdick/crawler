@@ -5,4 +5,4 @@
 Flask == 0.12.2
 
 # utils\code.py: 7
-Pillow == 5.0.0
+Pillow == 8.1.1
